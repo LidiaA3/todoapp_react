@@ -2,15 +2,11 @@ import TrashIcon from "./TrashIcon";
 
 function Task (props) {
 
-    function handleClick () {
-        console.log('Now the task is checked');
-    }
-
     return (
         <div className="task">
-            <input type="checkbox" {...props.checked ? 'checked' : ''} onClick={handleClick} />
+            <input type="checkbox" {...props.checked ? 'checked' : ''} onClick={props.handleCheck} />
             {props.text}
-            <button type="button" onClick={() => console.log('Delete task')}><TrashIcon/></button>
+            <button type="button" onClick={props.handleDelete}><TrashIcon/></button>
         </div>
     );
 }
