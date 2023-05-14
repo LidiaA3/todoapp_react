@@ -24,21 +24,23 @@ function Todo () {
         console.log(taskList)
     }
 
-    function checkboxClicked (i) {
+    function checkboxClicked (id) {
         const newTaskList = [...taskList];
+        const i = newTaskList.findIndex(item => item.id === id);
         if (newTaskList[i].completeTask) {
             newTaskList[i].completeTask = false;
-            console.log('Now the task', i, 'is unchecked');
+            console.log('Now the task', id, 'is unchecked');
         } else {
             newTaskList[i].completeTask = true;
-            console.log('Now the task', i, 'is checked');
+            console.log('Now the task', id, 'is checked');
         }
         setTaskList(newTaskList);
     }
 
-    function trashClicked (i) {
-        console.log('Delete task:', i);
+    function trashClicked (id) {
+        console.log('Delete task:', id);
         const newTaskList = [...taskList];
+        const i = newTaskList.findIndex(item => item.id === id);
         newTaskList.splice(i, 1);
         setTaskList(newTaskList);
     }
