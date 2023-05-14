@@ -1,0 +1,25 @@
+$color-light: #f3f3f3;
+$color-gray: #c9c9c9;
+$color-dark: #39393d;
+$color-turquoise: #51AEB0;
+$color-turquoise-dark: #336F70;
+$color-orange: #F92D45;
+$color-orange-dark: #A90518;
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    color: $color-light;
+    background-color: $color-dark;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+}
+
+h1 {
+    color: $color-turquoise;
+    font-size: 4.8rem;
+    text-align: center;
+}
