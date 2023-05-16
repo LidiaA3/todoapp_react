@@ -7,6 +7,7 @@ function Todo () {
     const [taskList, setTaskList] = useState([]);
     const [keyValue, setKeyValue] = useState(0);
     const [inputValue, setInputValue] = useState('');
+    const [currentFilter, setCurrentFilter] = useState('all');
 
     function readingInput(e) {
         setInputValue(e.target.value);
@@ -42,9 +43,7 @@ function Todo () {
         console.log('Delete task:', id);
         const newTaskList = [...taskList];
         const i = newTaskList.findIndex(item => item.id === id);
-        console.log('1. Old', taskList, 'New', newTaskList);
         newTaskList.splice(i, 1);
-        console.log('2. Old', taskList, 'New', newTaskList);
         setTaskList(newTaskList);
         console.log(taskList);
     }
@@ -52,9 +51,18 @@ function Todo () {
     return (
         <>
             <h2>Here goes my todo</h2>
+            <nav>
+                <button onClick={() => setCurrentFilter('all')}>All</button>
+                <button onClick={() => setCurrentFilter('todo')}>To do</button>
+                <button onClick={() => setCurrentFilter('completed')}>Completed</button>
+            </nav>
             <CreateTask handleChange={readingInput} handleClick={addingTask} />
             {taskList.map((task) => {
-                return <Task key={task.id} text={task.taskText} isChecked={task.completeTask} handleCheck={() => checkboxClicked(task.id)} handleDelete={() => trashClicked(task.id)} />
+                if (currentFilter === 'todo' && task.completeTask === false || currentFilter === 'completed' && task.completeTask === true || currentFilter === 'all') {
+                    return <Task key={task.id} text={task.taskText} isChecked={task.completeTask} handleCheck={() => checkboxClicked(task.id)} handleDelete={() => trashClicked(task.id)} />
+                } else {
+                    return ''
+                }
             })}
         </>
     );
