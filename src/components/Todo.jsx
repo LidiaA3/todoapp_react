@@ -36,7 +36,6 @@ function Todo () {
             console.log('Now the task', id, 'is checked');
         }
         setTaskList(newTaskList);
-        console.log(taskList);
     }
 
     function trashClicked (id) {
@@ -45,7 +44,6 @@ function Todo () {
         const i = newTaskList.findIndex(item => item.id === id);
         newTaskList.splice(i, 1);
         setTaskList(newTaskList);
-        console.log(taskList);
     }
 
     return (
