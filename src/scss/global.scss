@@ -47,6 +47,10 @@ h1 {
         border-radius: .5em;
         background-color: $color-turquoise;
         color: $color-light;
+
+        &:hover {
+            background-color: $color-turquoise-dark;
+        }
     }
 }
 
