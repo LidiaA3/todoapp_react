@@ -46,22 +46,28 @@ function Todo () {
         setTaskList(newTaskList);
     }
 
+    function changeView(nav) {
+        setCurrentFilter(nav);
+
+    }
+
     return (
         <>
-            <h2>Here goes my todo</h2>
-            <nav>
-                <button onClick={() => setCurrentFilter('all')}>All</button>
-                <button onClick={() => setCurrentFilter('todo')}>To do</button>
-                <button onClick={() => setCurrentFilter('completed')}>Completed</button>
-            </nav>
             <CreateTask handleChange={readingInput} handleClick={addingTask} />
-            {taskList.map((task) => {
-                if (currentFilter === 'todo' && task.completeTask === false || currentFilter === 'completed' && task.completeTask === true || currentFilter === 'all') {
-                    return <Task key={task.id} text={task.taskText} isChecked={task.completeTask} handleCheck={() => checkboxClicked(task.id)} handleDelete={() => trashClicked(task.id)} />
-                } else {
-                    return ''
-                }
-            })}
+            <nav className="nav">
+                <button className={`nav__btn ${currentFilter === 'all' ? 'active' : ''}`} onClick={() => changeView('all')}>All</button>
+                <button className={`nav__btn ${currentFilter === 'todo' ? 'active' : ''}`} onClick={() => changeView('todo')}>To do</button>
+                <button className={`nav__btn ${currentFilter === 'completed' ? 'active' : ''}`} onClick={() => changeView('completed')}>Completed</button>
+            </nav>
+            <section className="taskList">
+                {taskList.map((task) => {
+                    if (currentFilter === 'todo' && task.completeTask === false || currentFilter === 'completed' && task.completeTask === true || currentFilter === 'all') {
+                        return <Task key={task.id} text={task.taskText} isChecked={task.completeTask} handleCheck={() => checkboxClicked(task.id)} handleDelete={() => trashClicked(task.id)} />
+                    } else {
+                        return ''
+                    }
+                })}
+            </section>
         </>
     );
 }

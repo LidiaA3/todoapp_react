@@ -9,10 +9,10 @@ import { useState } from "react";
 function CreateTask (props) {
 
     return (
-        <>
-            <input type="text" onChange={props.handleChange} />
-            <button type="button" onClick={props.handleClick}>Add task</button>
-        </>
+        <div className="createTask">
+            <input className="createTask__input" type="text" placeholder="Write a task" onChange={props.handleChange} />
+            <button className="createTask__btn" type="button" onClick={props.handleClick}>Add task</button>
+        </div>
     );
 }
 

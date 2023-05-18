@@ -23,3 +23,124 @@ h1 {
     font-size: 4.8rem;
     text-align: center;
 }
+
+.createTask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 2rem;
+
+    &__input {
+        flex: 0 1 35rem;
+        border: .1em solid $color-turquoise;
+        border-radius: .5em;
+        padding: 1rem 2rem;
+    }
+
+    &__btn {
+        padding: 1rem 2rem;
+        width: 100%;
+        max-width: 39rem;
+        border: .1em solid $color-turquoise-dark;
+        border-radius: .5em;
+        background-color: $color-turquoise;
+        color: $color-light;
+    }
+}
+
+@media all and (min-width: 600px) {
+    .createTask {
+        &__btn {
+            width: 10rem;
+        }
+    }
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+
+    &__btn {
+        background-color: transparent;
+        border: none;
+        font-size: 2.4rem;
+        color: $color-light;
+    }
+}
+
+.active {
+    border-bottom: .1em solid $color-orange;
+}
+
+.taskList {
+    padding: 1rem 2rem;
+    max-width: 45rem;
+}
+
+@media all and (min-width: 450px) {
+    .taskList {
+        padding: 1rem calc((100% - 45rem) / 2);
+    }
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+
+    &__input {
+        appearance: none;
+        width: 3rem;
+        height: 3rem;
+        border: .1em solid $color-turquoise;
+        border-radius: .5em;
+        background-color: $color-light;
+
+        &:hover {
+            background-color: $color-gray;
+        }
+
+        &::after {
+            content: url(./check.svg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+        }
+
+        &:checked {
+            background-color: $color-turquoise;
+
+            &:hover {
+                border-color: $color-turquoise-dark;
+                background-color: $color-turquoise-dark;
+            }
+        }
+
+
+        &:checked::after {
+            opacity: 1;
+        }
+    }
+
+    &__text {
+        flex: 1;
+        margin: 0;
+    }
+
+    &__btn {
+        background-color: transparent;
+        border: none;
+        fill: $color-orange;
+
+        &:hover {
+            fill: $color-orange-dark;
+        }
+    }
+}

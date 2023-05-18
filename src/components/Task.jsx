@@ -10,9 +10,9 @@ function Task (props) {
 
     return (
         <div className="task">
-            <input type="checkbox" onClick={props.handleCheck} defaultChecked={props.isChecked} />
-            {props.text}
-            <button type="button" onClick={props.handleDelete}><TrashIcon/></button>
+            <input className="task__input" type="checkbox" onClick={props.handleCheck} defaultChecked={props.isChecked} />
+            <p className="task__text">{props.text}</p>
+            <button className="task__btn" type="button" onClick={props.handleDelete}><TrashIcon/></button>
         </div>
     );
 }
