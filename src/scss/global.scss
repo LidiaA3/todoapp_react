@@ -107,7 +107,7 @@ h1 {
         }
 
         &::after {
-            content: url(./check.svg);
+            content: url(/check.svg);
             display: flex;
             justify-content: center;
             align-items: center;
